@@ -57,12 +57,13 @@ public class InvoiceService {
     @Transactional
     public Invoice updatePayment(Long id, BigDecimal amountPaid) {
         Invoice invoice = getInvoiceById(id);
-        invoice.setAmountPaid(amountPaid);
+        BigDecimal newAmountPaid = invoice.getAmountPaid().add(amountPaid);
+        invoice.setAmountPaid(newAmountPaid);
 
         // Payment status auto set
-        if (amountPaid.compareTo(BigDecimal.ZERO) == 0) {
+        if (newAmountPaid.compareTo(BigDecimal.ZERO) == 0) {
             invoice.setPaymentStatus(PaymentStatus.UNPAID);
-        } else if (amountPaid.compareTo(invoice.getGrandTotal()) >= 0) {
+        } else if (newAmountPaid.compareTo(invoice.getGrandTotal()) >= 0) {
             invoice.setPaymentStatus(PaymentStatus.PAID);
         } else {
             invoice.setPaymentStatus(PaymentStatus.PARTIAL);
