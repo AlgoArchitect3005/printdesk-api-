@@ -42,6 +42,11 @@ public class JobCardController {
                 .body(jobCardService.createJobCard(customerId, jobCard));
     }
 
+//     @GetMapping("/customer/{customerId}")
+// public ResponseEntity<List<JobCard>> getJobsByCustomer(@PathVariable Long customerId) {
+//     return ResponseEntity.ok(jobCardService.getJobsByCustomerId(customerId));
+// }
+
     @PatchMapping("/{id}/status")
     public ResponseEntity<JobCard> updateStatus(
             @PathVariable Long id,
