@@ -49,4 +49,13 @@ public class CustomerService {
         Customer customer = getCustomerById(customerId);
         return jobCardRepository.findByCustomer(customer);
     }
+
+    public Customer updateCustomer(Long id , Customer updated){
+        Customer existing = getCustomerById(id);
+        existing.setName(updated.getName());
+        existing.setPhone(updated.getPhone());
+        existing.setEmail(updated.getEmail());
+        existing.setAddress(updated.getAddress());
+        return customerRepository.save(existing);
+    }
 }
