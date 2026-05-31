@@ -274,7 +274,7 @@ Customer                                   │
 
 <div align="center">
 
-Made with ❤️ for PrintDesk
+ ❤️ Built for a real business.🖨️ Designed to last.
 
 ⭐ Star this repo if you found it helpful!
 
