@@ -64,4 +64,7 @@ public class JobCardController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(jobCardService.addPartToJob(jobCardId, inventoryId, quantity));
     }
+
+    // @GetMapping("/customer/{id}")
+
 }
